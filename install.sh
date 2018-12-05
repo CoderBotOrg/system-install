@@ -4,6 +4,7 @@ apt-get install -y hostapd dnsmasq
 
 mkdir /etc/coderbot
 
+
 cp etc/hostname /etc/.
 cp etc/hosts /etc/.
 cp etc/init.d/* /etc/init.d/.
