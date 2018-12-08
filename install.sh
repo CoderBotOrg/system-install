@@ -17,6 +17,7 @@ cp etc/hostapd/* /etc/hostapd/.
 cp etc/dnsmasq.conf /etc/.
 cp etc/coderbot/* /etc/coderbot/.
 cp etc/modprobe.d/alsa-base.conf /etc/modprobe.d/.
+cp etc/iptables/rules.v4 /etc/iptables/.
 
 sudo -u pi bash << EOF
 ./download_mobilenet_v1_models.sh
