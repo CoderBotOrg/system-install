@@ -1,8 +1,8 @@
 #!/bin/bash
 
-apt-get install -y hostapd dnsmasq pigpio espeak gpac portaudio19-dev \
-                   git python3-pip python3 python3-venv libopenjp2-7-dev \
-                   libtiff5 libatlas-base-dev libhdf5-dev \
+apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
+                   portaudio19-dev git python3-pip python3 python3-venv \
+                   libopenjp2-7-dev libtiff5 libatlas-base-dev libhdf5-dev \
                    libhdf5-serial-dev python-gobject libharfbuzz-bin \
                    libwebp6 libjasper1 libilmbase12 libgstreamer1.0-0 \
                    libavcodec-extra57 libavformat57 libopencv-dev \
@@ -17,6 +17,7 @@ cp etc/hostapd/* /etc/hostapd/.
 cp etc/dnsmasq.conf /etc/.
 cp etc/coderbot/* /etc/coderbot/.
 cp etc/modprobe.d/alsa-base.conf /etc/modprobe.d/.
+cp etc/iptables/rules.v4 /etc/iptables/.
 
 sudo -u pi bash << EOF
 ./download_mobilenet_v1_models.sh
