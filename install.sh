@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get update -y
+apt-get upgrade -y
 apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
                    portaudio19-dev git python3-pip python3 python3-venv \
                    libopenjp2-7-dev libtiff5 libatlas-base-dev libhdf5-dev \
