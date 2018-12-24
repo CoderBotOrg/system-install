@@ -23,7 +23,7 @@ cp etc/iptables/rules.v4 /etc/iptables/.
 cp etc/network/interfaces.d/client /etc/network/interfaces.d/. 
 
 sudo -u pi bash << EOF
-./download_mobilenet_v1_models.sh
+./download_mobilenet_models.sh
 cd /home/pi
 wget https://github.com/CoderBotOrg/backend/archive/develop.zip
 unzip develop.zip
