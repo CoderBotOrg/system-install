@@ -40,6 +40,15 @@ pip3 install -r requirements.txt
 
 cd ..
 
+wget https://github.com/CoderBotOrg/update-reset/archive/master.zip
+unzip master.zip
+rm master.zip
+cd update-reset-master
+make install DESTDIR=/
+enable_overlay enable
+cd ..
+rm -rvf update-reset-master
+
 systemctl disable hostapd
 systemctl enable coderbot
 systemctl enable pigpiod
@@ -47,3 +56,5 @@ systemctl enable wifi
 systemctl start pigpiod
 systemctl start wifi
 systemctl start coderbot
+
+rm -rvf system-install-master
