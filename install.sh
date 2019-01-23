@@ -1,5 +1,16 @@
 #!/bin/bash
 
+usage() {
+	echo "install [BACKEND_BRANCH] [FRONTEND_RELEASE]"
+	echo "install all CoderBot software dependancies and components"
+	exit 2
+}
+
+[[ $1 == "-h" || $1 == "--help" ]] && usage
+
+BACKEND_BRANCH=${1:-'develop'}
+FRONTEND_RELEASE=${2:-'v0.1-alpha5'}
+
 apt-get update -y
 apt-get upgrade -y
 apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
@@ -24,10 +35,13 @@ cp etc/network/interfaces.d/client /etc/network/interfaces.d/.
 
 sudo -u pi bash << EOF
 cd /home/pi
-wget https://github.com/CoderBotOrg/backend/archive/develop.zip
-unzip develop.zip
-rm develop.zip
-mv backend-develop coderbot
+wget https://github.com/CoderBotOrg/backend/archive/$BACKEND_BRANCH.zip
+unzip $BACKEND_BRANCH.zip
+rm $BACKEND_BRANCH.zip
+mv backend-$BACKEND_BRANCH coderbot
+wget https://github.com/CoderBotOrg/vue-app/releases/download/$FRONTEND_RELEASE/vue-app-dist.tgz
+tar xzf vue-app-dist.tgz -C coderbot
+rm vue-app-dist.tgz
 EOF
 
 sudo -u pi bash << EOF
