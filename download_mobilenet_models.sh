@@ -10,5 +10,9 @@ wget -nc https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_1.
 wget -nc https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_1.0_128.tgz
 wget -nc https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_0.35_224.tgz
 wget -nc https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_0.35_128.tgz
+cd /home/pi/coderbot
+wget -nc https://github.com/CoderBotOrg/net-models/raw/master/archive/cnn_models.tar.xz
+tar xJf cnn_models.tar.xz
+rm cnn_models.tar.xz
 cd $CURDIR
 
