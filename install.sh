@@ -23,7 +23,7 @@ cp etc/iptables/rules.v4 /etc/iptables/.
 cp etc/network/interfaces.d/client /etc/network/interfaces.d/. 
 
 sudo -u pi bash << EOF
-SCRIPT_DIR=$pwd
+SCRIPT_DIR=$(pwd)
 cd /home/pi
 wget https://github.com/CoderBotOrg/backend/archive/develop.zip
 unzip develop.zip
