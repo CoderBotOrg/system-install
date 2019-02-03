@@ -44,7 +44,7 @@ wget https://github.com/CoderBotOrg/vue-app/releases/download/$FRONTEND_RELEASE/
 tar xzf vue-app-dist.tgz -C coderbot
 rm vue-app-dist.tgz
 wget https://github.com/CoderBotOrg/docs/archive/master.zip
-unzip master.zip -C coderbot/cb_docs
+unzip master.zip
 mv docs-master coderbot/cb_docs
 rm master.zip 
 EOF
