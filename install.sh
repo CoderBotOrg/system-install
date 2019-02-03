@@ -43,6 +43,10 @@ mv backend-$BACKEND_BRANCH coderbot
 wget https://github.com/CoderBotOrg/vue-app/releases/download/$FRONTEND_RELEASE/vue-app-dist.tgz
 tar xzf vue-app-dist.tgz -C coderbot
 rm vue-app-dist.tgz
+wget https://github.com/CoderBotOrg/docs/archive/master.zip
+unzip master.zip -C coderbot/cb_docs
+mv docs-master coderbot/cb_docs
+rm master.zip 
 EOF
 
 sudo -u pi bash << EOF
