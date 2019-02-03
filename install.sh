@@ -68,6 +68,8 @@ enable_overlay enable
 cd ..
 rm -rvf update-reset-master
 
+amixer sset PCM,0 100%
+
 systemctl disable hostapd
 systemctl enable coderbot
 systemctl enable pigpiod
