@@ -35,7 +35,7 @@ cp etc/iptables/rules.v4 /etc/iptables/.
 cp etc/network/interfaces.d/client /etc/network/interfaces.d/. 
 
 # reset service
-cp etc/scripts/* /usr/local/bin/.
+cp etc/scripts/reset_trigger.py /usr/local/bin/.
 
 sudo -u pi bash << EOF
 cd /home/pi
