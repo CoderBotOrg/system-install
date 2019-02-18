@@ -1,0 +1,13 @@
+[Unit]
+Description=Reset Button Trigger
+After=multi-user.target
+
+[Service]
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=reset_trigger
+ExecStart=/usr/bin/python -u /usr/local/bin/reset_trigger.py
+
+
+[Install]
+WantedBy=multi-user.target

@@ -34,8 +34,12 @@ cp etc/modprobe.d/alsa-base.conf /etc/modprobe.d/.
 cp etc/iptables/rules.v4 /etc/iptables/.
 cp etc/network/interfaces.d/client /etc/network/interfaces.d/. 
 
-# reset service
-cp etc/scripts/reset_trigger.py /usr/local/bin/.
+# reset service module
+cp etc/scripts/* /usr/local/bin/.         #copying user-oriented scripts
+cp etc/services/* /etc/systemd/system/.   #copying services
+cp etc/rsyslog.d/* /etc/rsyslog.d/.       #copying log directive
+mkdir /home/pi/log                        #making directory for services log files
+
 
 sudo -u pi bash << EOF
 cd /home/pi
@@ -77,8 +81,11 @@ systemctl disable hostapd
 systemctl enable coderbot
 systemctl enable pigpiod
 systemctl enable wifi
+systemctl enable reset_trigger.service    #enables reset_trigger service
 systemctl start pigpiod
 systemctl start wifi
 systemctl start coderbot
+systemctl start reset_trigger.service     #starts service immediately avoiding reboot to enable
+systemctl restart rsyslog                 #restarting syslog to update syslog output directives
 
 rm -rvf system-install-master
