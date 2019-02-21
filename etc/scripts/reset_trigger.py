@@ -18,3 +18,5 @@ while(True):
                 print("Restoring boot partition")
                 #subprocess.call(["sudo", "/home/pi/update-reset/src/sbin/restore_boot"])
                 print("Boot restore finished")
+                print("Rebooting...")
+                os.system('sudo reboot')
