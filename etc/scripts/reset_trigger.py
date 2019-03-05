@@ -22,7 +22,7 @@ while(True):
 						buttonTime = time.time() - start_time	  # How long was the button down?
 						if buttonTime >= 3:
 								#deletes the log file. if that doesn't exist, create one
-								with open('/home/pi/log/reset_trigger_service.log', 'w+'): pass
+								with open('/home/pi/coderbot/logs/reset_trigger_service.log', 'w+'): pass
 								print("Creating FLAG (doreset) for reset...")
 								open("/boot/doreset", 'a').close() # creates flag doreset inside (/boot)
 								print("[ OK ]")

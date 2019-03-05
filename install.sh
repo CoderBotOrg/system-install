@@ -38,7 +38,6 @@ cp etc/network/interfaces.d/client /etc/network/interfaces.d/.
 cp etc/scripts/* /usr/local/bin/.         #copying user-oriented scripts
 cp etc/services/* /etc/systemd/system/.   #copying services
 cp etc/rsyslog.d/* /etc/rsyslog.d/.       #copying log directive
-mkdir /home/pi/log                        #making directory for services log files
 
 
 sudo -u pi bash << EOF
