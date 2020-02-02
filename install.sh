@@ -8,8 +8,8 @@ usage() {
 
 [[ $1 == "-h" || $1 == "--help" ]] && usage
 
-BACKEND_BRANCH=${1:-'develop'}
-FRONTEND_RELEASE=${2:-'v0.1-alpha5'}
+BACKEND_BRANCH=${1:-'master'}
+FRONTEND_RELEASE=${2:-'v0.1'}
 
 apt-get update -y
 apt-get upgrade -y
