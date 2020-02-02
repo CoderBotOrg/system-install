@@ -17,10 +17,10 @@ apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
                    portaudio19-dev git python3-pip python3 python3-venv \
                    libopenjp2-7-dev libtiff5 libatlas-base-dev libhdf5-dev \
                    libhdf5-serial-dev python-gobject libharfbuzz-bin \
-                   libwebp6 libjasper1 libilmbase12 libgstreamer1.0-0 \
-                   libavcodec-extra57 libavformat57 libopencv-dev \
+                   libwebp6 libjasper1 libilmbase23 libgstreamer1.0-0 \
+                   libavcodec-extra58 libavformat58 libopencv-dev \
                    libqtgui4 libqt4-test omxplayer libhdf5-dev \
-		   zbar-tools python-zbar libzbar0
+		   zbar-tools python-zbar libzbar0 avrdude
 
 mkdir -p /etc/coderbot
 
