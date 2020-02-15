@@ -21,6 +21,7 @@ apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
                    libavcodec-extra58 libavformat58 libopencv-dev \
                    libqtgui4 libqt4-test omxplayer libhdf5-dev \
 		   zbar-tools python-zbar libzbar0 avrdude
+apt-get clean
 
 mkdir -p /etc/coderbot
 
