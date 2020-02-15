@@ -60,6 +60,9 @@ sudo -u pi bash << EOF
 EOF
 
 cd ../coderbot
+wget https://github.com/PINTO0309/Tensorflow-bin/raw/master/tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
+pip3 install tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
+rm tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 pip3 install -r requirements_stub.txt
 pip3 install -r requirements.txt
 
