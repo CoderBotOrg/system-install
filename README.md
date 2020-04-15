@@ -1,2 +1,2 @@
 # scripts
-Scripts to install and configure CoderBot backend components: systemd, wifi.
+Scripts to install and configure CoderBot backend components: systemd, wifi, audioconfig.

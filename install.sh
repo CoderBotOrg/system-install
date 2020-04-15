@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 usage() {
@@ -88,3 +89,7 @@ systemctl start reset_trigger.service     #starts service immediately avoiding r
 systemctl restart rsyslog                 #restarting syslog to update syslog output directives
 
 rm -rvf system-install-master
+
+#music extention
+sudo apt-get update && sudo apt-get install sox libsox-fmt-all
+#amixer -c1 cset 'numid=1' 400
