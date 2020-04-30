@@ -20,7 +20,7 @@ apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
                    libwebp6 libjasper1 libilmbase23 libgstreamer1.0-0 \
                    libavcodec-extra58 libavformat58 libopencv-dev \
                    libqtgui4 libqt4-test omxplayer libhdf5-dev \
-		   zbar-tools python-zbar libzbar0 avrdude
+		   zbar-tools python-zbar libzbar0 avrdude tesseract-ocr
 apt-get clean
 
 mkdir -p /etc/coderbot
