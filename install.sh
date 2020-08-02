@@ -51,6 +51,7 @@ wget https://github.com/CoderBotOrg/vue-app/releases/download/$FRONTEND_RELEASE/
 tar xzf vue-app-dist.tgz -C coderbot
 rm vue-app-dist.tgz
 wget https://github.com/CoderBotOrg/docs/releases/download/v0.1/docs.tgz
+mkdir -p coderbot/cb_docs
 tar xzf docs.tgz -C coderbot/cb_docs
 rm docs.tgz
 EOF
