@@ -18,10 +18,13 @@ apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
                    portaudio19-dev git python3-pip python3 python3-venv \
                    libopenjp2-7-dev libtiff5 libatlas-base-dev libhdf5-dev \
                    libhdf5-serial-dev python-gobject libharfbuzz-bin \
-                   libwebp6 libjasper1 libilmbase12 libgstreamer1.0-0 \
-                   libavcodec-extra57 libavformat57 libopencv-dev \
+                   libwebp6 libjasper1 libilmbase23 libgstreamer1.0-0 \
+                   libavcodec-extra58 libavformat58 libopencv-dev \
                    libqtgui4 libqt4-test omxplayer libhdf5-dev \
-		   zbar-tools python-zbar libzbar0 sox libsox-fmt-all
+            		   zbar-tools python-zbar libzbar0 sox libsox-fmt-all \
+                   avrdude tesseract-ocr
+                   
+apt-get clean
 
 mkdir -p /etc/coderbot
 
@@ -50,10 +53,10 @@ mv backend-$BACKEND_BRANCH coderbot
 wget https://github.com/CoderBotOrg/vue-app/releases/download/$FRONTEND_RELEASE/vue-app-dist.tgz
 tar xzf vue-app-dist.tgz -C coderbot
 rm vue-app-dist.tgz
-wget https://github.com/CoderBotOrg/docs/archive/master.zip
-unzip master.zip
-mv docs-master coderbot/cb_docs
-rm master.zip 
+wget https://github.com/CoderBotOrg/docs/releases/download/v0.1/docs.tgz
+mkdir -p coderbot/cb_docs
+tar xzf docs.tgz -C coderbot/cb_docs
+rm docs.tgz
 EOF
 
 sudo -u pi bash << EOF
@@ -61,6 +64,9 @@ sudo -u pi bash << EOF
 EOF
 
 cd ../coderbot
+wget https://github.com/PINTO0309/Tensorflow-bin/raw/master/tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
+pip3 install tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
+rm tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 pip3 install -r requirements_stub.txt
 pip3 install -r requirements.txt
 
@@ -90,5 +96,5 @@ systemctl restart rsyslog                 #restarting syslog to update syslog ou
 
 rm -rvf system-install-master
 
-# music extention
+# music extension
 amixer -c1 cset 'numid=1' 400
