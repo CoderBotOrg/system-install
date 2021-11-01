@@ -21,7 +21,7 @@ apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
                    libwebp6 libjasper1 libilmbase12 libgstreamer1.0-0 \
                    libavcodec-extra57 libavformat57 libopencv-dev \
                    libqtgui4 libqt4-test omxplayer libhdf5-dev \
-		   zbar-tools python-zbar libzbar0
+		   zbar-tools python-zbar libzbar0 sox libsox-fmt-all
 
 mkdir -p /etc/coderbot
 
@@ -90,6 +90,5 @@ systemctl restart rsyslog                 #restarting syslog to update syslog ou
 
 rm -rvf system-install-master
 
-#music extention
-sudo apt-get update && sudo apt-get install sox libsox-fmt-all
-#amixer -c1 cset 'numid=1' 400
+# music extention
+amixer -c1 cset 'numid=1' 400
