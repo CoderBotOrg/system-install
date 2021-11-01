@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 usage() {
@@ -20,7 +21,9 @@ apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
                    libwebp6 libjasper1 libilmbase23 libgstreamer1.0-0 \
                    libavcodec-extra58 libavformat58 libopencv-dev \
                    libqtgui4 libqt4-test omxplayer libhdf5-dev \
-		   zbar-tools python-zbar libzbar0 avrdude tesseract-ocr
+            		   zbar-tools python-zbar libzbar0 sox libsox-fmt-all \
+                   avrdude tesseract-ocr
+                   
 apt-get clean
 
 mkdir -p /etc/coderbot
@@ -92,3 +95,6 @@ systemctl start reset_trigger.service     #starts service immediately avoiding r
 systemctl restart rsyslog                 #restarting syslog to update syslog output directives
 
 rm -rvf system-install-master
+
+# music extension
+amixer -c1 cset 'numid=1' 400
