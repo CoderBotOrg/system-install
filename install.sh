@@ -21,7 +21,7 @@ apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
                    libwebp6 libjasper1 libilmbase23 libgstreamer1.0-0 \
                    libavcodec-extra58 libavformat58 libopencv-dev \
                    libqtgui4 libqt4-test omxplayer libhdf5-dev \
-            		   zbar-tools python-zbar libzbar0 sox libsox-fmt-all \
+                   zbar-tools python-zbar libzbar0 sox libsox-fmt-all \
                    avrdude tesseract-ocr
                    
 apt-get clean
@@ -98,3 +98,9 @@ rm -rvf system-install-master
 
 # music extension
 amixer -c1 cset 'numid=1' 400
+
+sudo -u pi bash << EOF
+./install_firmware.sh
+EOF
+
+echo "coderbot install complete!"
