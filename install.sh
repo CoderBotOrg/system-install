@@ -34,6 +34,7 @@ cp etc/init.d/* /etc/init.d/.
 cp etc/hostapd/* /etc/hostapd/.
 cp etc/dnsmasq.conf /etc/.
 cp etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/.
+cp etc/avrdude.conf /etc/.
 cp etc/coderbot/* /etc/coderbot/.
 cp etc/modprobe.d/alsa-base.conf /etc/modprobe.d/.
 cp etc/iptables/rules.v4 /etc/iptables/.
