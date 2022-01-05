@@ -36,6 +36,7 @@ cp etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/.
 cp etc/avrdude.conf /etc/.
 cp etc/coderbot/* /etc/coderbot/.
 cp etc/modprobe.d/alsa-base.conf /etc/modprobe.d/.
+cp etc/alsa.conf /usr/share/alsa/alsa.conf
 cp etc/iptables/rules.v4 /etc/iptables/.
 cp etc/network/interfaces.d/client /etc/network/interfaces.d/. 
 
