@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 usage() {
@@ -73,6 +72,10 @@ pip3 install -r requirements.txt
 
 cd ..
 
+sudo -u pi bash << EOF
+./install_firmware.sh
+EOF
+
 wget https://github.com/CoderBotOrg/update-reset/archive/master.zip
 unzip master.zip
 rm master.zip
@@ -100,9 +103,5 @@ rm -rvf system-install-master
 
 # music extension
 amixer -c1 cset 'numid=1' 400
-
-sudo -u pi bash << EOF
-./install_firmware.sh
-EOF
 
 echo "coderbot install complete!"
