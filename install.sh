@@ -33,6 +33,7 @@ cp etc/hosts /etc/.
 cp etc/init.d/* /etc/init.d/.
 cp etc/hostapd/* /etc/hostapd/.
 cp etc/dnsmasq.conf /etc/.
+cp etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/.
 cp etc/coderbot/* /etc/coderbot/.
 cp etc/modprobe.d/alsa-base.conf /etc/modprobe.d/.
 cp etc/iptables/rules.v4 /etc/iptables/.
@@ -83,6 +84,7 @@ rm -rvf update-reset-master
 
 amixer sset PCM,0 100%
 
+systemctl disable dphys-swapfile
 systemctl disable hostapd
 systemctl enable coderbot
 systemctl enable pigpiod
