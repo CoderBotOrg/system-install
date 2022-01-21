@@ -8,7 +8,7 @@ usage() {
 
 [[ $1 == "-h" || $1 == "--help" ]] && usage
 
-BACKEND_BRANCH=${1:-'4.1.0-rc1'}
+BACKEND_BRANCH=${1:-'5.0.0-rc0'}
 FRONTEND_RELEASE=${2:-'v4.0-rc0'}
 
 apt-get update -y
@@ -16,11 +16,9 @@ apt-get upgrade -y
 apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
                    portaudio19-dev git python3-pip python3 python3-venv \
                    libopenjp2-7-dev libtiff5 libatlas-base-dev libhdf5-dev \
-                   libhdf5-serial-dev python-gobject libharfbuzz-bin \
-                   libwebp6 libjasper1 libilmbase23 libgstreamer1.0-0 \
-                   libavcodec-extra58 libavformat58 libopencv-dev \
-                   libqtgui4 libqt4-test omxplayer libhdf5-dev \
-                   zbar-tools python-zbar libzbar0 sox libsox-fmt-all \
+                   libharfbuzz-bin libwebp6 libjasper1 libilmbase25 \
+                   libgstreamer1.0-0 libavcodec-extra58 libavformat58 \ 
+                   libopencv-dev zbar-tools libzbar0 sox libsox-fmt-all \
                    avrdude tesseract-ocr
                    
 apt-get clean
@@ -66,10 +64,10 @@ sudo -u pi bash << EOF
 EOF
 
 cd ../coderbot
-wget https://github.com/PINTO0309/Tensorflow-bin/blob/main/tensorflow-2.7.0-cp39-none-linux_aarch64_numpy1214_download.sh
+wget https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/main/tensorflow-2.7.0-cp39-none-linux_aarch64_numpy1214_download.sh 
 ./tensorflow-2.7.0-cp39-none-linux_aarch64_numpy1214_download.sh
-pip3 install tensorflow-2.7.0-cp39-none-linux_aarch64_numpy1214.whl
-rm tensorflow-2.7.0-cp39-none-linux_aarch64_numpy1214
+pip3 install tensorflow-2.7.0-cp39-none-linux_aarch64.whl
+rm tensorflow-2.7.0-cp39-none-linux_aarch64.whl 
 pip3 install -r requirements_stub.txt
 pip3 install -r requirements.txt
 
