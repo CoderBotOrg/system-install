@@ -8,8 +8,8 @@ usage() {
 
 [[ $1 == "-h" || $1 == "--help" ]] && usage
 
-BACKEND_BRANCH=${1:-'master'}
-FRONTEND_RELEASE=${2:-'v0.1'}
+BACKEND_BRANCH=${1:-'develop'}
+FRONTEND_RELEASE=${2:-'v4.0-rc0'}
 
 apt-get update -y
 apt-get upgrade -y
@@ -52,9 +52,9 @@ wget https://github.com/CoderBotOrg/backend/archive/$BACKEND_BRANCH.zip
 unzip $BACKEND_BRANCH.zip
 rm $BACKEND_BRANCH.zip
 mv backend-$BACKEND_BRANCH coderbot
-wget https://github.com/CoderBotOrg/vue-app/releases/download/$FRONTEND_RELEASE/vue-app-dist.tgz
-tar xzf vue-app-dist.tgz -C coderbot
-rm vue-app-dist.tgz
+wget https://github.com/CoderBotOrg/vue-app/releases/download/$FRONTEND_RELEASE/frontend.tar.gz
+tar xzf frontend.tar.gz -C coderbot
+rm frontend.tar.gz
 wget https://github.com/CoderBotOrg/docs/releases/download/v0.1/docs.tgz
 mkdir -p coderbot/cb_docs
 tar xzf docs.tgz -C coderbot/cb_docs
@@ -66,9 +66,12 @@ sudo -u pi bash << EOF
 EOF
 
 cd ../coderbot
-wget https://github.com/PINTO0309/Tensorflow-bin/raw/master/tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
+wget https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/main/previous_versions/download_tensorflow-2.1.0-cp37-cp37m-linux_armv7l.sh
+chmod +x ./download_tensorflow-2.1.0-cp37-cp37m-linux_armv7l .sh
+./download_tensorflow-2.1.0-cp37-cp37m-linux_armv7l.sh
 pip3 install tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 rm tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
+rm download_tensorflow-2.1.0-cp37-cp37m-linux_armv7l
 pip3 install -r requirements_stub.txt
 pip3 install -r requirements.txt
 
