@@ -67,13 +67,13 @@ EOF
 
 cd ../coderbot
 wget https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/main/previous_versions/download_tensorflow-2.1.0-cp37-cp37m-linux_armv7l.sh
-chmod +x ./download_tensorflow-2.1.0-cp37-cp37m-linux_armv7l .sh
+chmod +x ./download_tensorflow-2.1.0-cp37-cp37m-linux_armv7l.sh
 ./download_tensorflow-2.1.0-cp37-cp37m-linux_armv7l.sh
-pip3 install tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
+pip3 install --no-cache-dir tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 rm tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 rm download_tensorflow-2.1.0-cp37-cp37m-linux_armv7l
-pip3 install -r requirements_stub.txt
-pip3 install -r requirements.txt
+pip3 install --no-cache-dir -r requirements_stub.txt
+pip3 install --no-cache-dir -r requirements.txt
 
 cd ..
 
