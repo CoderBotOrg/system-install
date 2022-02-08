@@ -13,7 +13,7 @@ FRONTEND_RELEASE=${2:-'v4.0-rc0'}
 
 apt-get update -y
 apt-get upgrade -y
-apt-get install -y hostapd dnsmasq pigpio espeak gpac iptables-persistent \
+apt-get install -y hostapd dnsmasq pigpio espeak ffmpeg iptables-persistent \
                    portaudio19-dev git python3-pip python3 python3-venv \
                    libopenjp2-7-dev libtiff5 libatlas-base-dev libhdf5-dev \
                    libhdf5-serial-dev python-gobject libharfbuzz-bin \
