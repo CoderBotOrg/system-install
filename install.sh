@@ -10,6 +10,8 @@ usage() {
 
 BACKEND_BRANCH=${1:-'develop'}
 FRONTEND_RELEASE=${2:-'v0.4-rc2'}
+INSTALL_MODEL_PRETRAINED=${3:-'yes'}
+INSTALL_MODEL_4TRAINING=${4:-'no'}
 
 apt-get update -y
 apt-get upgrade -y
@@ -60,7 +62,8 @@ rm docs.tgz
 EOF
 
 sudo -u pi bash << EOF
-./download_mobilenet_models.sh
+[[ $INSTALL_MODEL_PRETRAINED = "yes" ]] && ./install_generic_cnn_models.sh
+[[ $INSTALL_MODEL_4TRAINING = "yes" ]] && ./download_mobilenet_models.sh
 EOF
 
 cd ../coderbot
