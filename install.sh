@@ -28,6 +28,7 @@ apt-get clean
 
 mkdir -p /etc/coderbot
 
+cp etc/boot/config.txt /boot/config.txt
 cp etc/hostname /etc/.
 cp etc/hosts /etc/.
 cp etc/init.d/* /etc/init.d/.
@@ -68,8 +69,8 @@ sudo -u pi bash << EOF
 EOF
 
 cd ../coderbot
-pip3 install -r requirements_stub.txt
-pip3 install -r requirements.txt
+pip install --no-cache-dir -r requirements_stub.txt
+pip install --no-cache-dir -r requirements.txt
 cd ..
 
 sudo -u pi bash << EOF
