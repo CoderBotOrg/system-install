@@ -17,7 +17,7 @@ apt-get install -y hostapd dnsmasq pigpio espeak ffmpeg iptables-persistent \
                    portaudio19-dev git python3-pip python3 python3-venv \
                    libopenjp2-7-dev libtiff5 libatlas-base-dev libhdf5-dev \
                    libharfbuzz-bin libwebp6 libjasper1 libilmbase25 \
-                   libgstreamer1.0-0 libavcodec-extra58 libavformat58 \ 
+                   libgstreamer1.0-0 libavcodec-extra58 libavformat58 \
                    libopencv-dev zbar-tools libzbar0 sox libsox-fmt-all \
                    avrdude tesseract-ocr
                    
