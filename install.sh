@@ -64,8 +64,8 @@ rm docs.tgz
 EOF
 
 sudo -u pi bash << EOF
-[[ $INSTALL_MODEL_PRETRAINED = "yes" ]] && ./install_generic_cnn_models.sh
-[[ $INSTALL_MODEL_4TRAINING = "yes" ]] && ./download_mobilenet_models.sh
+[[ "$INSTALL_MODEL_PRETRAINED" = "yes" ]] && ./install_generic_cnn_models.sh
+[[ "$INSTALL_MODEL_4TRAINING" = "yes" ]] && ./download_mobilenet_models.sh
 EOF
 
 cd ../coderbot
@@ -86,7 +86,7 @@ enable_overlay enable
 cd ..
 rm -rvf update-reset-master
 
-amixer sset PCM,0 100%
+amixer sset Headphone,0 100%
 
 systemctl disable dphys-swapfile
 systemctl disable hostapd
