@@ -1,4 +1,5 @@
 #!/bin/bash
+SYSTEM_INSTALL_DIR=$(pwd)
 set -e
 usage() {
 	echo "install [BACKEND_BRANCH] [FRONTEND_RELEASE]"
@@ -69,11 +70,10 @@ EOF
 cd ../coderbot
 pip3 install -r requirements_stub.txt
 pip3 install -r requirements.txt
-
 cd ..
 
 sudo -u pi bash << EOF
-./install_firmware.sh
+$SYSTEM_INSTALL_DIR/install_firmware.sh
 EOF
 
 wget https://github.com/CoderBotOrg/update-reset/archive/master.zip
@@ -99,7 +99,7 @@ systemctl start coderbot
 systemctl start reset_trigger.service     #starts service immediately avoiding reboot to enable
 systemctl restart rsyslog                 #restarting syslog to update syslog output directives
 
-rm -rvf system-install-master
+rm -rvf $SYSTEM_INSTALL_DIR
 
 # music extension
 amixer -c1 cset 'numid=1' 400
