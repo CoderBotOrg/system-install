@@ -9,7 +9,7 @@ usage() {
 [[ $1 == "-h" || $1 == "--help" ]] && usage
 
 BACKEND_BRANCH=${1:-'develop'}
-FRONTEND_RELEASE=${2:-'v4.0-rc0'}
+FRONTEND_RELEASE=${2:-'v0.4-rc2'}
 
 apt-get update -y
 apt-get upgrade -y
