@@ -35,7 +35,7 @@ cp etc/init.d/* /etc/init.d/.
 cp etc/hostapd/* /etc/hostapd/.
 cp etc/dnsmasq.conf /etc/.
 cp etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/.
-cp etc/avrdude.conf /etc/.
+cp etc/avrdude.conf /usr/local/etc/.
 cp etc/coderbot/* /etc/coderbot/.
 cp etc/modprobe.d/alsa-base.conf /etc/modprobe.d/.
 cp etc/alsa.conf /usr/share/alsa/alsa.conf
@@ -86,7 +86,7 @@ enable_overlay enable
 cd ..
 rm -rvf update-reset-master
 
-amixer sset Headphone,0 100%
+# amixer sset Headphone,0 100%
 
 systemctl disable dphys-swapfile
 systemctl disable hostapd
@@ -103,7 +103,7 @@ systemctl restart rsyslog                 #restarting syslog to update syslog ou
 rm -rvf $SYSTEM_INSTALL_DIR
 
 # music extension
-amixer -c1 cset 'numid=1' 400
+# amixer -c1 cset 'numid=1' 400
 
 # replace avrdude with custom build - linuxspi support
 wget https://github.com/CoderBotOrg/avrdude/releases/download/v6.4/avrdude
