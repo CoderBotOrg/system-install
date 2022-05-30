@@ -105,4 +105,9 @@ rm -rvf $SYSTEM_INSTALL_DIR
 # music extension
 amixer -c1 cset 'numid=1' 400
 
+# replace avrdude with custom build - linuxspi support
+wget https://github.com/CoderBotOrg/avrdude/releases/download/v6.4/avrdude
+chmod +x avrdude
+mv avrdude /usr/bin/avrdude
+
 echo "coderbot install complete!"
