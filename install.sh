@@ -66,6 +66,7 @@ EOF
 sudo -u pi bash << EOF
 [[ "$INSTALL_MODEL_PRETRAINED" = "yes" ]] && ./install_generic_cnn_models.sh
 [[ "$INSTALL_MODEL_4TRAINING" = "yes" ]] && ./download_mobilenet_models.sh
+echo done
 EOF
 
 cd ../coderbot
