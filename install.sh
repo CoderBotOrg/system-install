@@ -108,7 +108,7 @@ rm -rvf $SYSTEM_INSTALL_DIR
 
 # replace avrdude with custom build - linuxspi support
 wget https://github.com/CoderBotOrg/avrdude/releases/download/v7.0/avrdude-v7.tar.gz
-tar xzf /avrdude-v7.tar.gz
+tar xf avrdude-v7.tar.gz
 mv v7.0/avrdude /usr/local/bin/avrdude
 mv v7.0/avrdude.conf /usr/local/etc/avrdude.conf
 rm -rf v7.0
