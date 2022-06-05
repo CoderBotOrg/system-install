@@ -80,3 +80,4 @@ arm_boost=1
 
 [all]
 gpu_mem=128
+enable_uart=0

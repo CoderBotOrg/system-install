@@ -41,6 +41,7 @@ cp etc/modprobe.d/alsa-base.conf /etc/modprobe.d/.
 cp etc/alsa.conf /usr/share/alsa/alsa.conf
 cp etc/iptables/rules.v4 /etc/iptables/.
 cp etc/network/interfaces.d/client /etc/network/interfaces.d/. 
+cp etc/modules /etc/modules 
 
 # reset service module
 cp etc/scripts/* /usr/local/bin/.         #copying user-oriented scripts
