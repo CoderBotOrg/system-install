@@ -106,8 +106,11 @@ rm -rvf $SYSTEM_INSTALL_DIR
 # amixer -c1 cset 'numid=1' 400
 
 # replace avrdude with custom build - linuxspi support
-wget https://github.com/CoderBotOrg/avrdude/releases/download/v6.4/avrdude
-chmod +x avrdude
-mv avrdude /usr/bin/avrdude
+wget https://github.com/CoderBotOrg/avrdude/releases/download/v7.0/avrdude-v7.tar.gz
+tar xzf /avrdude-v7.tar.gz
+mv v7.0/avrdude /usr/local/bin/avrdude
+mv v7.0/avrdude.conf /usr/local/etc/avrdude.conf
+rm -rf v7.0
+rm avrdude-v7.tar.gz
 
 echo "coderbot install complete!"
