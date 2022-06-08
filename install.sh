@@ -10,7 +10,7 @@ usage() {
 [[ $1 == "-h" || $1 == "--help" ]] && usage
 
 BACKEND_BRANCH=${1:-'develop'}
-FRONTEND_RELEASE=${2:-'v0.4-rc2'}
+FRONTEND_RELEASE=${2:-'v0.4-rc3'}
 INSTALL_MODEL_PRETRAINED=${3:-'yes'}
 INSTALL_MODEL_4TRAINING=${4:-'no'}
 
