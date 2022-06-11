@@ -92,6 +92,8 @@ rm -rvf update-reset-master
 
 systemctl disable dphys-swapfile
 systemctl disable hostapd
+systemctl disable wpa_supplicant
+systemctl disable dhcpcd
 systemctl enable coderbot
 systemctl enable pigpiod
 systemctl enable wifi
