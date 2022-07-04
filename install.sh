@@ -93,7 +93,6 @@ rm -rvf update-reset-master
 systemctl disable dphys-swapfile
 systemctl disable hostapd
 systemctl disable wpa_supplicant
-sudo sudo mv /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant /lib/dhcpcd/10-wpa_supplicant # disable dhcpd wpa_supplicant auto start script
 systemctl enable coderbot
 systemctl enable pigpiod
 systemctl enable wifi
