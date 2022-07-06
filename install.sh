@@ -40,7 +40,6 @@ cp etc/coderbot/* /etc/coderbot/.
 cp etc/modprobe.d/alsa-base.conf /etc/modprobe.d/.
 cp etc/alsa.conf /usr/share/alsa/alsa.conf
 cp etc/iptables/rules.v4 /etc/iptables/.
-#cp etc/network/interfaces.d/client /etc/network/interfaces.d/.
 cp etc/dhcpcd.conf.client /etc/dhcpcd.conf.client
 cp etc/dhcpcd.conf.ap /etc/dhcpcd.conf.ap
 cp etc/modules /etc/modules 
@@ -92,9 +91,10 @@ rm -rvf update-reset-master
 
 # amixer sset Headphone,0 100%
 
+# init wifi unique id
+coderbot/wifi.py setuniquessid
+
 systemctl disable dphys-swapfile
-# systemctl disable hostapd
-# systemctl disable wpa_supplicant
 systemctl enable coderbot
 systemctl enable pigpiod
 systemctl enable wifi
