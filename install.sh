@@ -97,6 +97,7 @@ coderbot/wifi.py updatecfg -m ap
 
 systemctl disable dphys-swapfile
 systemctl unmask hostapd
+systemctl disable wpa_supplicant
 systemctl enable coderbot
 systemctl enable pigpiod
 systemctl enable wifi
