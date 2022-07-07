@@ -93,8 +93,10 @@ rm -rvf update-reset-master
 
 # init wifi unique id
 coderbot/wifi.py setuniquessid
+coderbot/wifi.py updatecfg -m ap
 
 systemctl disable dphys-swapfile
+systemctl unmask hostapd
 systemctl enable coderbot
 systemctl enable pigpiod
 systemctl enable wifi
