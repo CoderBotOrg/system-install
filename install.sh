@@ -52,17 +52,7 @@ cp etc/rsyslog.d/* /etc/rsyslog.d/.       #copying log directive
 
 sudo -u pi bash << EOF
 cd /home/pi
-wget https://github.com/CoderBotOrg/backend/archive/$BACKEND_BRANCH.zip
-unzip $BACKEND_BRANCH.zip
-rm $BACKEND_BRANCH.zip
-mv backend-$BACKEND_BRANCH coderbot
-wget https://github.com/CoderBotOrg/frontend/releases/download/$FRONTEND_RELEASE/frontend.tar.gz
-tar xzf frontend.tar.gz -C coderbot
-rm frontend.tar.gz
-wget https://github.com/CoderBotOrg/docs/releases/download/v0.1/docs.tgz
-mkdir -p coderbot/cb_docs
-tar xzf docs.tgz -C coderbot/cb_docs
-rm docs.tgz
+git clone https://github.com/CoderBotOrg/backend
 EOF
 
 sudo -u pi bash << EOF
