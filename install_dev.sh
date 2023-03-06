@@ -10,7 +10,7 @@ usage() {
 [[ $1 == "-h" || $1 == "--help" ]] && usage
 
 BACKEND_BRANCH=${1:-'develop'}
-FRONTEND_RELEASE=${2:-'v0.4-rc3'}
+FRONTEND_RELEASE=${2:-'v0.6'}
 INSTALL_MODEL_PRETRAINED=${3:-'yes'}
 INSTALL_MODEL_4TRAINING=${4:-'no'}
 
@@ -57,11 +57,9 @@ echo done
 EOF
 
 cd /home/pi/coderbot
-pip install --no-cache-dir -r requirements_stub.txt
 pip install --no-cache-dir -r requirements.txt
 cd /home/pi
 
-sudo -u pi bash << EOF
 wget https://github.com/CoderBotOrg/frontend/releases/download/$FRONTEND_RELEASE/frontend.tar.gz
 tar xzf frontend.tar.gz -C /usr/share/nginx/html --strip-components=1
 rm frontend.tar.gz
@@ -69,7 +67,6 @@ wget https://github.com/CoderBotOrg/docs/releases/download/v0.2/docs.tgz
 mkdir -p /usr/share/nginx/html/docs
 tar xzf docs.tgz -C /usr/share/nginx/html/docs
 rm docs.tgz
-EOF
 
 sudo -u pi bash << EOF
 $SYSTEM_INSTALL_DIR/install_firmware.sh
