@@ -16,7 +16,7 @@ INSTALL_MODEL_4TRAINING=${4:-'no'}
 
 apt-get update -y
 apt-get upgrade -y
-apt-get install -y hostapd dnsmasq pigpio espeak ffmpeg nginx \
+apt-get install -y pigpio espeak ffmpeg nginx \
                    portaudio19-dev git python3-pip python3 python3-venv \
                    libopenjp2-7-dev libtiff5 libatlas-base-dev libhdf5-dev \
                    libharfbuzz-bin libwebp6 libjasper1 libilmbase25 \
@@ -32,32 +32,22 @@ cp etc/boot/config.txt /boot/config.txt
 cp etc/hostname /etc/.
 cp etc/hosts /etc/.
 cp etc/init.d/* /etc/init.d/.
-cp etc/hostapd/* /etc/hostapd/.
-cp etc/dnsmasq.conf /etc/.
-cp etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/.
 cp etc/avrdude.conf /usr/local/etc/.
-cp etc/coderbot/* /etc/coderbot/.
 cp etc/modprobe.d/alsa-base.conf /etc/modprobe.d/.
 cp etc/alsa.conf /usr/share/alsa/alsa.conf
-cp etc/dhcpcd.conf.client /etc/dhcpcd.conf.client
-cp etc/dhcpcd.conf.ap /etc/dhcpcd.conf.ap
 cp etc/modules /etc/modules 
+cp etc/nginx/nginx.conf /etc/nginx/nginx.conf
+cp etc/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # reset service module
 cp etc/scripts/* /usr/local/bin/.         #copying user-oriented scripts
 cp etc/services/* /etc/systemd/system/.   #copying services
 cp etc/rsyslog.d/* /etc/rsyslog.d/.       #copying log directive
 
-# nginx
-cp etc/nginx/nginx.conf /etc/nginx/nginx.conf
-cp etc/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 sudo -u pi bash << EOF
 cd /home/pi
-wget https://github.com/CoderBotOrg/backend/archive/$BACKEND_BRANCH.zip
-unzip $BACKEND_BRANCH.zip
-rm $BACKEND_BRANCH.zip
-mv backend-$BACKEND_BRANCH coderbot
+git clone https://github.com/CoderBotOrg/backend coderbot -b $BACKEND_BRANCH
 EOF
 
 sudo -u pi bash << EOF
@@ -66,10 +56,10 @@ sudo -u pi bash << EOF
 echo done
 EOF
 
-cd ../coderbot
+cd /home/pi/coderbot
 pip install --no-cache-dir -r requirements_stub.txt
 pip install --no-cache-dir -r requirements.txt
-cd ..
+cd /home/pi
 
 sudo -u pi bash << EOF
 wget https://github.com/CoderBotOrg/frontend/releases/download/$FRONTEND_RELEASE/frontend.tar.gz
@@ -85,32 +75,13 @@ sudo -u pi bash << EOF
 $SYSTEM_INSTALL_DIR/install_firmware.sh
 EOF
 
-wget https://github.com/CoderBotOrg/update-reset/archive/master.zip
-unzip master.zip
-rm master.zip
-cd update-reset-master
-make install DESTDIR=/
-enable_overlay enable
-cd ..
-rm -rvf update-reset-master
-
 # amixer sset Headphone,0 100%
 
-# init wifi unique id
-coderbot/wifi.py setuniquessid
-coderbot/wifi.py updatecfg -m ap
-
 systemctl disable dphys-swapfile
-systemctl unmask hostapd
-systemctl disable wpa_supplicant
 systemctl enable coderbot
 systemctl enable pigpiod
-systemctl enable wifi
-systemctl enable reset_trigger.service    #enables reset_trigger service
 systemctl start pigpiod
-systemctl start wifi
 systemctl start coderbot
-systemctl start reset_trigger.service     #starts service immediately avoiding reboot to enable
 systemctl restart rsyslog                 #restarting syslog to update syslog output directives
 
 rm -rvf $SYSTEM_INSTALL_DIR
