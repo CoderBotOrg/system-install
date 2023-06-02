@@ -77,6 +77,7 @@ EOF
 
 systemctl disable dphys-swapfile
 systemctl enable coderbot
+systemctl start wifi
 systemctl enable pigpiod
 systemctl start pigpiod
 systemctl start coderbot
