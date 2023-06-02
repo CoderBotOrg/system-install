@@ -48,6 +48,7 @@ cp etc/rsyslog.d/* /etc/rsyslog.d/.       #copying log directive
 sudo -u pi bash << EOF
 cd /home/pi
 git clone https://github.com/CoderBotOrg/backend coderbot -b $BACKEND_BRANCH
+git clone https://github.com/CoderBotOrg/python-wifi-connect-stub.git wifi
 EOF
 
 sudo -u pi bash << EOF
